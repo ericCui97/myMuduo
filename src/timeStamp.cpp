@@ -24,7 +24,7 @@ std::string TimeStamp::toFormatString(bool showMicroseconds) const
 {
     char buf[64] = {0};
     auto seconds = static_cast<time_t>(msSinceEpoch_ / kMsPerSecond);
-    struct tm tm_time{};
+    struct tm tm_time;
     gmtime_r(&seconds, &tm_time);
 
     if (showMicroseconds)
