@@ -6,7 +6,7 @@
 #include "timeStamp.h"
 #include <sys/time.h>
 #include <cinttypes>
-
+#include <time.h>
 using namespace muduo;
 
 static_assert(sizeof(TimeStamp) == sizeof(int64_t), "timeStamp should be same size as int64_t");
