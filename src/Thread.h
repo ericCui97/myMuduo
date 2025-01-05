@@ -5,15 +5,17 @@
 #ifndef OSMUDUO_THREAD_H
 #define OSMUDUO_THREAD_H
 
-#include<functional>
-#include<memory>
-#include<pthread.h>
-#include<string>
-#include"nocopyable.h"
-#include"atomic.h"
+#include <functional>
+#include <memory>
+#include <pthread.h>
+#include <string>
+#include "nocopyable.h"
+#include "atomic.h"
 
-namespace muduo {
-    class Thread : nocopyable {
+namespace muduo
+{
+    class Thread : nocopyable
+    {
 
         typedef std::function<void()> ThreadFunc;
 
@@ -42,11 +44,9 @@ namespace muduo {
         pid_t tid_;
         ThreadFunc func_;
         std::string name_;
-        CountDownLatch latch_;
+        // CountDownLatch latch_;
         static AtomicInt32 numCreated_;
-
     };
 }
 
-
-#endif //OSMUDUO_THREAD_H
+#endif // OSMUDUO_THREAD_H

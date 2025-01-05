@@ -5,18 +5,23 @@
 #ifndef TIMESTAMP_H
 #define TIMESTAMP_H
 #include <cstdint>
-#include<string>
+#include <string>
 
-namespace muduo {
-    class TimeStamp {
+namespace muduo
+{
+    class TimeStamp
+    {
     public:
-        TimeStamp(): msSinceEpoch_(0) {
+        TimeStamp() : msSinceEpoch_(0)
+        {
         }
 
-        explicit TimeStamp(const int64_t msSinceEpoch): msSinceEpoch_(msSinceEpoch) {
+        explicit TimeStamp(const int64_t msSinceEpoch) : msSinceEpoch_(msSinceEpoch)
+        {
         }
 
-        TimeStamp(const TimeStamp &another) {
+        TimeStamp(const TimeStamp &another)
+        {
             msSinceEpoch_ = another.msSinceEpoch_;
         }
 
@@ -30,15 +35,18 @@ namespace muduo {
 
         static TimeStamp now();
 
-        static TimeStamp invalid() {
+        static TimeStamp invalid()
+        {
             return TimeStamp(0);
         }
 
-        static TimeStamp fromUnixTimestamp(int64_t t) {
+        static TimeStamp fromUnixTimestamp(int64_t t)
+        {
             return fromUnixTime(t, 0);
         }
 
-        static TimeStamp fromUnixTime(const time_t t, const int ms) {
+        static TimeStamp fromUnixTime(const time_t t, const int ms)
+        {
             return TimeStamp(t * kMsPerSecond + ms);
         }
 
@@ -48,11 +56,13 @@ namespace muduo {
         int64_t msSinceEpoch_ = 0;
     };
 
-    inline bool operator<(const TimeStamp& lhs, const TimeStamp& rhs) {
+    inline bool operator<(const TimeStamp &lhs, const TimeStamp &rhs)
+    {
         return lhs.msSinceEpoch() < rhs.msSinceEpoch();
     }
 
-    inline bool operator==(const TimeStamp& lhs, const TimeStamp& rhs) {
+    inline bool operator==(const TimeStamp &lhs, const TimeStamp &rhs)
+    {
         return lhs.msSinceEpoch() == rhs.msSinceEpoch();
     }
 
@@ -60,7 +70,8 @@ namespace muduo {
     /// @param lhs
     /// @param rhs
     /// @return return in seconds
-    inline double timeDiff(const TimeStamp& lhs, const TimeStamp& rhs) {
+    inline double timeDiff(const TimeStamp &lhs, const TimeStamp &rhs)
+    {
         int64_t diff = lhs.msSinceEpoch() - rhs.msSinceEpoch();
         return static_cast<double>(diff) / TimeStamp::kMsPerSecond;
     }
@@ -69,11 +80,11 @@ namespace muduo {
     /// @param ts1
     /// @param seconds
     /// @return 加 【2】 秒
-    inline TimeStamp addTime(const TimeStamp& ts1, const double seconds) {
+    inline TimeStamp addTime(const TimeStamp &ts1, const double seconds)
+    {
         const auto delta = static_cast<int64_t>(seconds * TimeStamp::kMsPerSecond);
         return TimeStamp(ts1.msSinceEpoch() + delta);
     }
 }
 
-
-#endif //TIMESTAMP_H
+#endif // TIMESTAMP_H

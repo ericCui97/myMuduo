@@ -5,10 +5,13 @@
 #include <unistd.h>
 #include "Thread.h"
 
-namespace muduo {
-    namespace detail {
-        pid_t gettid() {
-//            return static_cast<pid_t>(::syscall(SYS_gettid));
+namespace muduo
+{
+    namespace detail
+    {
+        pid_t gettid()
+        {
+            //            return static_cast<pid_t>(::syscall(SYS_gettid));
         }
     }
 }

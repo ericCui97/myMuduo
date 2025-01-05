@@ -15,12 +15,12 @@ namespace muduo
 
     namespace detail
     {
-        template<typename T>
+        template <typename T>
         class AtomicIntegerT : nocopyable
         {
         public:
             AtomicIntegerT()
-                    : value_(0)
+                : value_(0)
             {
             }
 
@@ -87,11 +87,11 @@ namespace muduo
         private:
             volatile T value_;
         };
-    }  // namespace detail
+    } // namespace detail
 
     typedef detail::AtomicIntegerT<int32_t> AtomicInt32;
     typedef detail::AtomicIntegerT<int64_t> AtomicInt64;
 
-}  // namespace muduo
+} // namespace muduo
 
-#endif  // MUDUO_BASE_ATOMIC_H
+#endif // MUDUO_BASE_ATOMIC_H

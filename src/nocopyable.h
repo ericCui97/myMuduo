@@ -5,7 +5,8 @@
 #ifndef NOCOPYABLE_H
 #define NOCOPYABLE_H
 
-class nocopyable {
+class nocopyable
+{
 public:
     nocopyable() = default;
 
@@ -15,4 +16,4 @@ public:
 
     nocopyable &operator=(const nocopyable &) = delete;
 };
-#endif //NOCOPYABLE_H
+#endif // NOCOPYABLE_H
