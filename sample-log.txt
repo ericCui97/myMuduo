@@ -1,0 +1,9 @@
+[2025-01-06 10:05:54.239] [sample-logger] [info] Sample Info output.
+[2025-01-06 10:05:54.239] [sample-logger] [warning] Sample Warn output.
+[2025-01-06 10:05:54.239] [sample-logger] [error] Sample Error output.
+[2025-01-06 10:09:11.898] [sample-logger] [info] Sample Info output.
+[2025-01-06 10:09:11.898] [sample-logger] [warning] Sample Warn output.
+[2025-01-06 10:09:11.898] [sample-logger] [error] Sample Error output.
+[2025-01-06 10:09:13.434] [sample-logger] [info] Sample Info output.
+[2025-01-06 10:09:13.434] [sample-logger] [warning] Sample Warn output.
+[2025-01-06 10:09:13.434] [sample-logger] [error] Sample Error output.
