@@ -1,3 +1,8 @@
 # spdlog
-cd libs/spdlog && mkdir build && cd build
-cmake .. && cmake --build .
+cmake -S . -B build
+cmake --build build
+
+cd build&&ctest
+
+# unit test
+make compile_tests
