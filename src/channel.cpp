@@ -20,7 +20,7 @@ void Channel::update()
 {
 
     // TODO
-    // loop_->updateChannel(this);
+    loop_->updateChannel(this);
 }
 
 void Channel::handleEvent(TimeStamp receiveTime)

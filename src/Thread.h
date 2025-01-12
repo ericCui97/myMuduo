@@ -11,42 +11,40 @@
 #include <string>
 #include "nocopyable.h"
 #include "atomic.h"
-
-namespace muduo
+#include <thread>
+#include <atomic>
+class Thread : nocopyable
 {
-    class Thread : nocopyable
-    {
 
-        typedef std::function<void()> ThreadFunc;
+    typedef std::function<void()> ThreadFunc;
 
-        explicit Thread(ThreadFunc, const std::string &name = std::string());
+    explicit Thread(ThreadFunc, const std::string &name = std::string());
 
-        ~Thread();
+    ~Thread();
 
-        void start();
+    void start();
 
-        void join();
+    void join();
 
-        bool started() const { return started_; }
+    bool started() const { return started_; }
 
-        pid_t getPid() const { return tid_; }
+    pid_t getPid() const { return tid_; }
 
-        const std::string &name() const { return name_; }
+    const std::string &name() const { return name_; }
 
-        static int numCreated() { return numCreated_.get(); }
+    static int numCreated() { return numCreated_; }
 
-    private:
-        void setDefaultName();
+private:
+    void setDefaultName();
 
-        bool started_;
-        bool joined_;
-        pthread_t pthreadId_;
-        pid_t tid_;
-        ThreadFunc func_;
-        std::string name_;
-        // CountDownLatch latch_;
-        static AtomicInt32 numCreated_;
-    };
-}
+    bool started_;
+    bool joined_;
+    pthread_t pthreadId_;
+    pid_t tid_;
+    ThreadFunc func_;
+    std::string name_;
+    std::shared_ptr<std::thread> thread_;
+    static std::atomic_int numCreated_;
+};
 
 #endif // OSMUDUO_THREAD_H
