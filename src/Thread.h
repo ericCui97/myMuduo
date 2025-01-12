@@ -15,7 +15,7 @@
 #include <atomic>
 class Thread : nocopyable
 {
-
+public:
     typedef std::function<void()> ThreadFunc;
 
     explicit Thread(ThreadFunc, const std::string &name = std::string());

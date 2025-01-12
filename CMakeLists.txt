@@ -16,8 +16,6 @@ add_executable(main main.cpp
 src/timeStamp.cpp 
 src/INetAddress.cpp 
 src/CurrentThread.cpp
-src/EventLoop.cpp
-src/channel.cpp
 )
 # target_link_libraries(main
 #   spdlog
