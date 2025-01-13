@@ -17,6 +17,8 @@ public:
     void setKeepAlive(bool on);
     ~Socket();
 
+    int fd(){return sockfd_;}
+
 private:
     int sockfd_;
 };
